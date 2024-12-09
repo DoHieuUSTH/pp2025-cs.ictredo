@@ -33,6 +33,8 @@ class School:
             dob = input("Enter student Date of Birth (YYYY-MM-DD): ")
             student = Student(student_id, name, dob)
             self.students.append(student)
+            self.marks[student_id] = {}
+            print(f"New Student added: {student_name}")
 
     def input_courses(self):
         num_courses = int(input("Enter number of courses: "))
@@ -46,6 +48,8 @@ class School:
             name_course = input("Enter course name: ")
             course = Course(course_id, name)
             self.courses.append(course)
+            self.marks[course_id] = {}
+            print(f"New Course added: {course_name}")
 
     def select_course_and_input_marks(self):
         self.list_courses()
