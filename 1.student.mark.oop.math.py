@@ -22,18 +22,28 @@ class School:
 
     def input_students(self):
         num_students = int(input("Enter number of students: "))
+        if num_students.isdigit() and int(num_students) > 0:
+            return int(num_students)
+        else:
+            print("Number of student must be positive!")
+
         for _ in range(num_students):
             student_id = input("Enter student ID: ")
-            name = input("Enter student name: ")
+            name_student = input("Enter student name: ")
             dob = input("Enter student Date of Birth (YYYY-MM-DD): ")
             student = Student(student_id, name, dob)
             self.students.append(student)
 
     def input_courses(self):
         num_courses = int(input("Enter number of courses: "))
+        if num_courses.isdigit() and int(num_courses) > 0:
+            return int(num_courses)
+        else:
+            print("Number of course must be positive!")
+
         for _ in range(num_courses):
             course_id = input("Enter course ID: ")
-            name = input("Enter course name: ")
+            name_course = input("Enter course name: ")
             course = Course(course_id, name)
             self.courses.append(course)
 
@@ -45,12 +55,22 @@ class School:
             student.add_marks(course_id, marks)
 
     def list_courses(self):
-        print("Courses:")
+        if len(course) == 0:
+           print("Please print id")
+        else:
+            print("Course")
+        for c in list_courses:
+            print(f"  {c[0]}: {c[1]}")
         for course in self.courses:
             print(f"{course.course_id}: {course.name}")
 
     def list_students(self):
-        print("Students:")
+        if len(student) == 0:
+        print("Not student yet!")
+    else:
+        print("Students list:")
+        for s in students:
+            print(f"  {s[0]}: {s[1]}, DOB: {s[2]}")
         for student in self.students:
             print(f"{student.student_id}: {student.name} (DOB: {student.dob})")
 
